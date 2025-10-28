@@ -1,49 +1,25 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
 
-#define MAX_SIZE 128
+#define N 5
 
-struct listType {
-    int data[MAX_SIZE];
-    int size; // current number of items in list
-};
+int main()
+{
+    int i, k, n;
+    int t1[N] = {1, 2, 3, 4, 5}, t2[N] = {1, 2, 3, 4, 5}, pt[N][N];
 
-typedef struct listType *alist;
-void insertAtFront(alist list,int item);
-
-// Function to create an empty list
-alist createList() {
-    return NULL;
-}
-
-void insertAtFront(alist list, int item) {
-    int i;
-    if (list->size=MAX_SIZE) return;
-    for (i=list->size; i>0;i--)
-        list->data [i]=list->data[i-1];
-    list->data[0]=item;
-    list->size++;
-}
-
-int main() {
-
-    // Create an empty list
-    alist l = createList();
-    
-    // Print the empty list
-    printf("Empty list: ");
-    // printList(l);
-    printf("\n");
-    
-    // Add elements to the list
-    insertAtFront(l, 2);
-    insertAtFront(l, 4);
-    insertAtFront(l, 6);
-
-    // Print the list with elements
-    printf("After adding 2, 4, 6: ");
-    // printList(l);
-    printf("\n");
+    for (i = 0; i < N; i++)
+    {
+        for (k = 0; k < N; k++)
+        {
+            pt[N][N] = 0;
+            for (n = 0; n < N; n++)
+            {
+                pt[i][n] = t1[i] * t2[n];
+                printf("%4d", pt[i][n]);
+            }
+            printf("\n");
+        }
+    }
 
     return 0;
 }
